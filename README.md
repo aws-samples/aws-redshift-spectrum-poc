@@ -60,7 +60,7 @@ This copy process may take hours, so you can let the sync run while you proceed 
 
 A Cloud Formation template, [redshift-spectrum-poc-env.template](cf-templates/redshift-spectrum-poc-env.template), has been provided under the cf-templates directory to build the following environment:
 
-![poc environment diagram](https://github.com/awslabs/aws-redshift-spectrum-poc/images/blob/master/redshift-spectrum-poc-env-diagram.png)
+![poc environment diagram](https://github.com/awslabs/aws-redshift-spectrum-poc/blob/master/images/redshift-spectrum-poc-env-diagram.png)
 
 The template is designed to create an isolated environment, so a new VPC is carved out with the typical networking elements diagram above such as public and private subnets, IGW and routing constructs. The primary resources deployed are a bastion host and a Redshift cluster deployed in a private subnet. The instance types and size of the cluster is spcified by you when you run the template. The default values in the template are the primary configurations used in most of the experiments presented in the article.
 
