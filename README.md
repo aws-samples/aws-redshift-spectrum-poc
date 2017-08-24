@@ -24,6 +24,8 @@ Furthermore, as described in the article:
 
 ### Data sources:
 
+You must be an authenticated AWS user to access these data sets.
+
  1. clickstream-csv10:
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv10
     - format: csv
@@ -48,7 +50,7 @@ Furthermore, as described in the article:
 ### Steps:
 
 1. Create a bucket for each scenario that you want to test. For instance, if you decide to test the two scenarios described in the article, create two buckets like <my-unique_id>-redshift-spectrum-datastore-csv10 and <my-unique_id>-redshift-spectrum-datastore-parquet1 for housing the clickstream-csv10 and clickstream-parquet1 datasets respectively.
-2. Copy the public datasets over to your bucket. In the example scenario, run these two commands using the AWS CLI with the appropriate permissions:
+2. Copy the public datasets over to your bucket. You must be an authenticated user to download this data set. In the example scenario, run these two commands using the AWS CLI with the appropriate permissions:
 
      - *aws s3 sync s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv10 s3://`<my-unique-id>`-redshift-spectrum-datastore-csv10*
   
