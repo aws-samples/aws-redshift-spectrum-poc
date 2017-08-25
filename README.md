@@ -52,9 +52,9 @@ You must be an authenticated AWS user to access these data sets.
 1. Create a bucket for each scenario that you want to test. For instance, if you decide to test the two scenarios described in the article, create two buckets like <my-unique_id>-redshift-spectrum-datastore-csv10 and <my-unique_id>-redshift-spectrum-datastore-parquet1 for housing the clickstream-csv10 and clickstream-parquet1 datasets respectively.
 2. Copy the public datasets over to your bucket. You must be an authenticated user to download this data set. In the example scenario, run these two commands using the AWS CLI with the appropriate permissions:
 
-     - *aws s3 sync --source-region us-east-1 s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv10 s3://`<my-unique-id>`-redshift-spectrum-datastore-csv10/*
+     - *aws s3 sync --source-region us-east-1 s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv10 s3://`<my-unique-id>`-redshift-spectrum-datastore-csv10
   
-     - *aws s3 sync s3://redshift-spectrum-bigdata-blog-datasets/clickstream-parquet1 s3://`<my-unique-id>`-redshift-spectrum-datastore-parquet1/*
+     - *aws s3 sync --source-region us-east-1 s3://redshift-spectrum-bigdata-blog-datasets/clickstream-parquet1 s3://`<my-unique-id>`-redshift-spectrum-datastore-parquet1
      
 This copy process may take hours, so you can let the sync run while you proceed with the other steps to build out your environment.     
 
