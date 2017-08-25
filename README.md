@@ -30,22 +30,32 @@ You must be an authenticated AWS user to access these data sets.
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv10
     - format: csv
     - file partitioning scheme: 10 files for each customer and year/month
+    - dataset size: 615.9 GB
+    - file size: ~90-130 MB
  2. clickstream-parquet10:
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-parquet10
     - format: parquet
     - file partitioning scheme: 10 files for each customer and year/month
+    - dataset size: 115.4 GB
+    - file size: ~15-30 MB
  3. clickstream-parquet1:
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-parquet10
     - format: parquet
     - file partitioning scheme: 1 file for each customer and year/month
+    - dataset size: 116.4 GB
+    - file size: 200-250 MB
  4. clickstream-csv20
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv20
     - format: csv
     - file partitioning scheme: 20 files for each customer and year/month
+    - dataset size: 615.9 GB
+    - file size: ~60 MB
  5. clickstream-parquet20
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-parquet20
     - format: parquet
     - file partitioning scheme: 20 files for each customer and year/month
+    - dataset size: 288.5 GB
+    - file size: ~20-30 MB
 
 ### Steps:
 
