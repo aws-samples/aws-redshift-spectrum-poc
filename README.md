@@ -24,7 +24,7 @@ Furthermore, as described in the article:
 
 ### Data sources:
 
-You must be an authenticated AWS user to access these data sets.
+The datasets reside in US-East-1, and you must be an authenticated AWS user to access these data sets.
 
  1. clickstream-csv10:
     - location: s3://redshift-spectrum-bigdata-blog-datasets/clickstream-csv10
