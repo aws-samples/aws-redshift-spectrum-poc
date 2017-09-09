@@ -81,7 +81,7 @@ Note that since this is a PoC environment wthout HA requirements, minimal resour
 ### Steps:
 
 1. [Download the Cloud Formation template provided](cf-templates/redshift-spectrum-poc-env.template).
-2. Run the template with the necessary permissions to create the resources illustrated above. If your account doesn't have sufficient permissions, [create a role from this linked document to provide least privileges to execute the template](cf-templates/template-exec-policy.json)
+2. Run the template with the necessary permissions to create the resources illustrated above. If your account doesn't have sufficient permissions, [create a role from this linked document to provide least privileges to execute the template](cf-templates/template-exec-policy.json). The template requires you to provide an AMI ID. Please provide the latest Microsoft Windows Server 2016 Base AMI. You can find this AMI from the console by searching on "AMI-Name: Windows_Server-2016-English-Full-Base-." The AWS documentation provides other options as well: http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/finding-an-ami.html
 
 ## Setup Database Client
 
@@ -102,7 +102,6 @@ This PoC leverages the benchmarking environment documented on AWS's website. You
 ### Steps:
 1. Create the dimension tables. Log into your client and run the create table commands provided in the [create-dimensions.sql](sql-scripts/create-dimensions.sql) script.
 2. Load the star schema benchmark data set into your cluster via the copy command. You can run the commands provided in the [load-dimension-data.sql](sql-scripts/load-dimension-data.sql) script, which will require you to provide the appropriate access and secret keys. Specifically, you need to replace the text <Your-Access-Key-ID> and <Your-Secret-Access-Key> in the script with the appropriate access and secret keys.
-
 
 ## Define External Redshift Tables
 
