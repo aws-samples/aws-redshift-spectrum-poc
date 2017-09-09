@@ -75,8 +75,8 @@ Parameters:
     Description: Instance type for your bastion host
   pBastionHostImageId:
     Description: >-
-      Provide the latest HVM (SSD) EBS-Backed 64-bit Linux AMI ID 
-      listed at https://aws.amazon.com/amazon-linux-ami/
+      Provide the latest Windows Full Base AMI ID: 
+      http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/finding-an-ami.html
     Type: String
     MinLength: 10   
   pBastionHostEC2KeyPair:
