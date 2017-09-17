@@ -5,5 +5,5 @@ iam_role 'arn:aws:iam::<aws-account-id>:role/<role-name>'
 gzip region 'us-west-2';
 
 copy dwdate from 's3://awssampledbuswest2/ssbgz/dwdate' 
-credentials 'arn:aws:iam::<aws-account-id>:role/<role-name>'
+iam_role 'arn:aws:iam::<aws-account-id>:role/<role-name>'
 gzip region 'us-west-2';
