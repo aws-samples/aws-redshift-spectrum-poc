@@ -1,17 +1,17 @@
 set autocommit=on;
 
 create external table clickstream.uservisits_csv10(
-custKey int4,
-yearmonthKey int4,
-visitDate int4,
 adRevenue float,
 countryCode char(3),
+custKey int4,
 destURL varchar(100),
 duration int4,
 languageCode char(6),
 searchWord varchar(32),
 sourceIP varchar(116),
-userAgent varchar(256))
+userAgent varchar(256),
+visitDate int4,
+yearmonthKey int4)
 partitioned by(customer int4, visitYearMonth int4)
 row format delimited
 fields terminated by ','
