@@ -138,6 +138,7 @@
                 "iam:AttachUserPolicy",
                 "iam:CreatePolicy",
                 "iam:CreatePolicyVersion",
+                "iam:CreateServiceLinkedRole",
                 "iam:CreateRole",
                 "iam:DeletePolicy",
                 "iam:DeletePolicyVersion",
