@@ -1,6 +1,6 @@
 # Redshift Spectrum PoC Environment
 
-The following are instructions to rebuild the Redshift Spectrum PoC environment that was presented in the AWS Big Data Blog: ["Leveraging Redshift Spectrum to Enchance Customer 360: Insights from Data Lake to Data Warehouse."](https://aws.amazon.com/blogs/big-data/)
+The following are instructions to rebuild the Redshift Spectrum PoC environment that was presented in the AWS Big Data Blog: ["Leveraging Redshift Spectrum to Enchance Customer 360: Insights from Data Lake to Data Warehouse."](https://aws.amazon.com/blogs/big-data/from-data-lake-to-data-warehouse-enhancing-customer-360-with-amazon-redshift-spectrum/)
 
 ## Prerequisites
 
