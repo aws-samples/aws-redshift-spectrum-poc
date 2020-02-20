@@ -4,25 +4,25 @@ Metadata:
   'AWS::CloudFormation::Interface':
     ParameterGroups:
       - Label:
-          default: Region Configuration
+          default: Region Configurations
         Parameters:
           - pAvailabilityZone
       - Label:
-          default: VPC Configuration
+          default: VPC Configurations
         Parameters:
           - pPoCVPCName
           - pPoCEnvCIDR
           - pPublicSubnetCIDR
           - pPrivateAnalyticsSubnetCIDR
       - Label:
-          default: Bastion Host Configuration
+          default: Bastion Host Configurations
         Parameters:
           - pBastionHostInstanceType
           - pBastionHostImageId
           - pBastionHostEC2KeyPair
           - pInboundTraffic
       - Label:
-          default: Redshift Cluster Configuration
+          default: Redshift Cluster Configurations
         Parameters:
           - pClusterType
           - pNumberOfNodes
@@ -31,7 +31,13 @@ Metadata:
           - pDatabaseName
           - pMasterUsername
           - pMasterUserPassword
+      - Label:
+          - default: Datalake Configurations
+        Parameters:
+          - pS3BucketName
     ParameterLabels:
+      pS3BucketName:
+        default: S3 Bucket Name
       pPoCVPCName:
         default: PoC VPC Name
       pPoCEnvCIDR:
@@ -132,7 +138,7 @@ Parameters:
   pNodeType:
     Description: The type of node to be provisioned
     Type: String
-    Default: dc1.large
+    Default: dc2.large
     AllowedValues:
       - ds2.xlarge
       - ds2.8xlarge
@@ -140,13 +146,14 @@ Parameters:
       - dc1.8xlarge
       - dc2.large
       - dc2.8xlarge
+      - ra3.16xlarge
   pMasterUsername:
     Description: >-
       The user name that is associated with the master user account for the
       cluster that is being created
     Type: String
     Default: admin
-    AllowedPattern: '([a-z])([a-z]|[0-9])*'
+    AllowedPattern: '([a-zA-Z])([a-zA-Z]|[0-9])*'
   pMasterUserPassword:
     Description: >-
       The password that is associated with the master user account for the
@@ -167,6 +174,12 @@ Parameters:
     Description: The port number on which the cluster accepts incoming connections.
     Type: Number
     Default: '5439'
+  pS3BucketName:
+    Description: Specify the S3 bucket name containing the data you wish to query using Redshift Spectrum.
+    Type: String
+    Default: replace-me
+    MinLength: 3
+    AllowedPattern: '([a-z-])([a-z-]|[0-9])*'
 Conditions:
   IsMultiNodeCluster: !Equals 
     - !Ref pClusterType
@@ -298,8 +311,9 @@ Resources:
                 Action:
                   - 's3:Get*'
                   - 's3:List*'
-                  - 'athena:*'
-                Resource: '*'
+                Resource:
+                  - !Sub 'arn:aws:s3:::${pS3BucketName}'
+                  - !Sub 'arn:aws:s3:::${pS3BucketName}/*'
   rBastionHostSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
